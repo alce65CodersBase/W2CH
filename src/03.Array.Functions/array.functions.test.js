@@ -14,7 +14,12 @@ describe('Given aLength function', () => {
 
   describe('When we invoque it with a n items array', () => {
     test('Then it return should be n', () => {
-      //
+      // arrange
+      const aData = [1, 2, 3];
+      // act
+      const r = aLength(aData);
+      // assert
+      expect(r).toBe(3);
     });
   });
 });
