@@ -19,8 +19,10 @@
   - `npm i eslint-config-prettier` + configurar ESLint-prettier
 - Creamos el repo (CH1)
   - initial commit
-  - protegemos la rama
-  - añadimos husky
+  - conectamos a GitHub
+  - protegemos la rama: Require a pull request before merging
+  - añadimos huskies: commit-msg y pre-push
+    - comprobamos su efecto
   - añadimos GitHub Actions: audit y sonar
 - Trabajamos en el repo
   - Creamos la rama de trabajo: features/sample
