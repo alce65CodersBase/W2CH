@@ -1,14 +1,19 @@
 # Week2 Challenges: Learning JS (ES6+)
 
 - Day 1. Start project + sample.js
+- Day 2. Strict Equals
 
-## Configuraciones
+## Configuraciones (Day 1)
 
 - Editor config
 - EsLint + Prettier
 - Git + Husky
 
-## Instalación
+## Configuraciones (Day 2)
+
+- Jest + ES6
+
+## Instalación (Day 1)
 
 - Creamos proyecto incluido ESLint y prettier (CH1)
   - .editorconfig
@@ -51,3 +56,32 @@
     - comprobamos la validez da la PR cada vez que se actualiza
     - mergeamos la PR al finalizar, con todos los checks correctos
     - eliminamos la PR, al menos en GitHub
+
+## Instalación (Day 2)
+
+- Incorporamos testing (CH2)
+  - Instalación de Jest
+
+    ```shell
+    npm i -D jest @babel/plugin-transform-modules-commonjs
+    ```
+
+  - Configuración en package.json (Jest + ES6 Modules)
+
+    ```json
+    "scripts": {
+    "test": "jest --watchAll --coverage"
+    },
+    "babel": {
+        "env": {
+            "test": {
+                "plugins": [
+                    "@babel/plugin-transform-modules-commonjs"
+                ]
+            }
+        }
+    }
+    ```
+
+  - GitHub Action de testing
+  - Coverage en sonar
