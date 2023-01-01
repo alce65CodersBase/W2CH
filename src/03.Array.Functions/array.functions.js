@@ -7,3 +7,14 @@ export const aLength = (array = []) => {
   }
   return i;
 };
+
+export const aPush = (array, value) => {
+  const l = aLength(array);
+  // eslint-disable-next-line no-param-reassign
+  array[l] = value;
+  return aLength(array);
+};
+
+// Continuar con
+// export const aFoo = (array = []) => {
+// };

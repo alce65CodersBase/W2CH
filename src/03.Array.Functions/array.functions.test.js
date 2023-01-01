@@ -1,4 +1,5 @@
-import { aLength } from './array.functions.js';
+import { aLength, aPush } from './array.functions.js';
+
 describe('Given aLength function', () => {
   const testCases = [
     {
@@ -46,4 +47,19 @@ describe('Given aLength function', () => {
       });
     }
   );
+});
+
+describe('Given aPush function', () => {
+  describe('When we invoque it with a value', () => {
+    test('Then last original array item should be the value', () => {
+      // arrange
+      const aData = [10, 20];
+      const added = 23;
+      // act
+      const r = aPush(aData, added);
+      // assert
+      expect(r).toBe(3);
+      expect(aData[2]).toBe(23);
+    });
+  });
 });
