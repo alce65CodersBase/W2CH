@@ -105,7 +105,7 @@
       "typeAcquisition": {
           "include": ["jest"]
       }
-     }
+    }
     ```
 
   - GitHub Action de testing
