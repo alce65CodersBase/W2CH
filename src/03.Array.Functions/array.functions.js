@@ -1,3 +1,7 @@
-export const aLength = (value = []) => {
-  return 0;
+export const aLength = (array = []) => {
+  let i = 0;
+  while (array[i]) {
+    i++;
+  }
+  return i;
 };
