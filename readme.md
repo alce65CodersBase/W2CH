@@ -1,14 +1,20 @@
 # Week2 Challenges: Learning JS (ES6+)
 
 - Day 1. Start project + sample.js
+- Day 2. Strict Equals
 
-## Configuraciones
+## Configuraciones (Day 1)
 
 - Editor config
 - EsLint + Prettier
 - Git + Husky
 
-## Instalación
+## Configuraciones (Day 2)
+
+- Jest + ES6
+- carpeta src (contenedor de los challenges)
+
+## Instalación (Day 1)
 
 - Creamos proyecto incluido ESLint y prettier (CH1)
   - .editorconfig
@@ -51,3 +57,65 @@
     - comprobamos la validez da la PR cada vez que se actualiza
     - mergeamos la PR al finalizar, con todos los checks correctos
     - eliminamos la PR, al menos en GitHub
+
+## Instalación (Day 2)
+
+- Incorporamos testing (CH2)
+  - Instalación de Jest
+
+    ```shell
+    npm i -D jest @babel/plugin-transform-modules-commonjs
+    ```
+
+  - Configuración de ESLint
+
+    ```json
+    "env": {
+      "jest": true
+    }
+    ```
+
+  - Configuración en package.json (Jest + ES6 Modules)
+
+    ```json
+    "scripts": {
+    "test": "jest --watchAll --coverage"
+    },
+    "babel": {
+        "env": {
+            "test": {
+                "plugins": [
+                    "@babel/plugin-transform-modules-commonjs"
+                ]
+            }
+        }
+    }
+    ```
+
+  - GitHub Action de testing
+
+      ```yml
+      name: Testing Analysis
+
+      on:
+        push:
+          branches: ['main']
+        pull_request:
+          types: [opened, synchronize, reopened]
+        workflow_dispatch:
+
+      jobs:
+        Test:
+          name: Tests
+          runs-on: ubuntu-latest
+          steps:
+            - uses: actions/checkout@v3
+              with:
+                fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+            - name: Install modules
+              run: npm ci
+            - name: Testing coverage
+              run: npm run test:prod #Change for a valid npm script
+      ```
+
+  - Coverage en sonar (ampliar fichero sonar-project.properties)
