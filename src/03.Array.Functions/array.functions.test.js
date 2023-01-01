@@ -1,4 +1,13 @@
-import { aLength, aPush, aPop, aShift, aUnshift } from './array.functions.js';
+import {
+  aLength,
+  aPush,
+  aPop,
+  aShift,
+  aUnshift,
+  aJoin,
+  aIndexOf,
+  aIncludes,
+} from './array.functions';
 
 describe('Given aLength function', () => {
   const testCases = [
@@ -145,6 +154,99 @@ describe('Given aUnshift function', () => {
       // assert
       expect(r).toBe(1);
       expect(aData).toEqual([30]);
+    });
+  });
+});
+
+describe('Given aJoin function', () => {
+  describe('When we invoque it with a separator value', () => {
+    test('Then a string with the items join by te separator should returned', () => {
+      const aData = [10, 20];
+      const separator = '; ';
+      // act
+      const r = aJoin(aData, separator);
+      // assert
+      expect(r).toBe('10; 20');
+    });
+    test('Then it should be the same if array is empty', () => {
+      const aData = [];
+      const separator = '; ';
+      // act
+      const r = aJoin(aData, separator);
+      // assert
+      expect(r).toBe('');
+    });
+  });
+
+  describe('When we invoque it without a separator value', () => {
+    test('Then a string with the items join by "," should returned', () => {
+      const aData = [10, 20];
+      // act
+      const r = aJoin(aData);
+      // assert
+      expect(r).toBe('10,20');
+    });
+  });
+});
+
+describe('Given aIndexOf function', () => {
+  describe('When we invoque it with a valid value', () => {
+    test('Then it should return de index of the value', () => {
+      const aData = [10, 20, 30];
+      const element = 20;
+      // act
+      const r = aIndexOf(aData, element);
+      // assert
+      expect(r).toBe(1);
+    });
+  });
+  describe('When we invoque it with a invalid value', () => {
+    test('Then it should return -1', () => {
+      const aData = [10, 20, 30];
+      const element = 60;
+      // act
+      const r = aIndexOf(aData, element);
+      // assert
+      expect(r).toBe(-1);
+    });
+    test('Then it should be the same if array is empty', () => {
+      const aData = [];
+      const element = 60;
+      // act
+      const r = aIndexOf(aData, element);
+      // assert
+      expect(r).toBe(-1);
+    });
+  });
+});
+
+describe('Given aIncludes function', () => {
+  describe('When we invoque it with a valid value', () => {
+    test('Then it should return true', () => {
+      const aData = [10, 20, 30];
+      const element = 20;
+      // act
+      const r = aIncludes(aData, element);
+      // assert
+      expect(r).toBe(true);
+    });
+  });
+  describe('When we invoque it with a invalid value', () => {
+    test('Then it should return -1', () => {
+      const aData = [10, 20, 30];
+      const element = 60;
+      // act
+      const r = aIncludes(aData, element);
+      // assert
+      expect(r).toBe(false);
+    });
+    test('Then it should be the same if array is empty', () => {
+      const aData = [];
+      const element = 60;
+      // act
+      const r = aIncludes(aData, element);
+      // assert
+      expect(r).toBe(false);
     });
   });
 });

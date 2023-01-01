@@ -9,15 +9,19 @@ Crea un modulo con funciones que repliquen, sin utilizar ninguno de los métodos
 - pop,
 - unshift,
 - shift,
+- join
+- indexOf,
+- includes,
+
+Hight Order methods: method(callback)
+
+- map,
+- filter,
+- find,
+- findIndex,
+- reduce,
 - some,
 - every,
-- find,
-- filter,
-- map,
-- findIndex,
-- includes,
-- indexOf,
-- reduce,
-- join
+
 
 Cualquiera de tus funciones puede usar las que ya hayas creado.

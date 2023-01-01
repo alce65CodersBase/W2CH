@@ -1,4 +1,4 @@
-export const aLength = (array = []) => {
+export const aLength = (array) => {
   const keys = Object.keys(array);
   let i = 0;
   while (keys[i]) {
@@ -15,7 +15,7 @@ export const aPush = (array, value) => {
   return aLength(array);
 };
 
-export const aPop = (array = []) => {
+export const aPop = (array) => {
   const lastPosition = aLength(array) - 1;
   if (lastPosition < 0) return undefined;
   const lastValue = array[lastPosition];
@@ -25,7 +25,7 @@ export const aPop = (array = []) => {
 };
 
 // elimina la primera
-export const aShift = (array = []) => {
+export const aShift = (array) => {
   if (!aLength(array)) return undefined;
   const firstValue = array[0];
   // eslint-disable-next-line no-plusplus
@@ -50,6 +50,31 @@ export const aUnshift = (array, value) => {
   return aLength(array);
 };
 
-// Continuar con
-// export const aFoo = (array = []) => {
-// };
+export const aJoin = (array, separator = ',') => {
+  let result = aLength(array) ? array[0] : '';
+  // eslint-disable-next-line no-plusplus
+  for (let i = 1; i < aLength(array); i++) {
+    result += separator + array[i];
+  }
+  return result;
+};
+
+export const aIndexOf = (array, element) => {
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < aLength(array); i++) {
+    if (array[i] === element) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+export const aIncludes = (array, element) => {
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < aLength(array); i++) {
+    if (array[i] === element) {
+      return true;
+    }
+  }
+  return false;
+};
