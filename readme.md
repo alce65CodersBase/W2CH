@@ -12,6 +12,7 @@
 ## Configuraciones (Day 2)
 
 - Jest + ES6
+- carpeta src (contenedor de los challenges)
 
 ## Instalación (Day 1)
 
