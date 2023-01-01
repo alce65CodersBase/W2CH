@@ -11,6 +11,26 @@ describe('Given aLength function', () => {
       value: [1, 3, 3],
       length: 3,
     },
+    {
+      case: 'an array of 3 numbers starting with 0',
+      value: [0, 3, 3],
+      length: 3,
+    },
+    {
+      case: 'an array of 3 items starting with null',
+      value: [null, 3, 3],
+      length: 3,
+    },
+    {
+      case: 'an array of 3 items starting with undefined',
+      value: [undefined, 3, 3],
+      length: 3,
+    },
+    {
+      case: 'an array of 3 objects',
+      value: [{}, {}, {}],
+      length: 3,
+    },
   ];
 
   describe.each(testCases)(
