@@ -92,6 +92,22 @@
     }
     ```
 
+  - Intellisense de Jest en VSC:
+
+    ```shell
+    npm i -D @types/jest
+    ```
+
+    Fichero jsconfig.json
+
+    ```json
+    {
+      "typeAcquisition": {
+          "include": ["jest"]
+      }
+    }
+    ```
+
   - GitHub Action de testing
 
       ```yml
@@ -119,3 +135,18 @@
       ```
 
   - Coverage en sonar (ampliar fichero sonar-project.properties)
+
+  ```properties
+    sonar.projectKey=alce65CodersBase_W2CH
+    sonar.organization=alce65codersbase
+
+    # This is the name and version displayed in the SonarCloud UI.
+    #sonar.projectName=W2CH
+    #sonar.projectVersion=1.0
+
+    # Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
+    sonar.sources=./src
+    sonar.test.inclusions=./src/**/*.test.*
+    sonar.javascript.lcov.reportPaths=coverage/lcov.info
+    sonar.coverage.exclusions=src/**/*.test.*, src/**/index.*
+  ```
