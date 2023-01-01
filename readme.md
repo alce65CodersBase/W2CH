@@ -22,7 +22,7 @@
   - conectamos a GitHub
   - protegemos la rama: Require a pull request before merging
 - Modificamos la configuración del repo
-  - creamos la rama de trabajo: features/config
+  - creamos la rama de trabajo: feature/config
   - añadimos huskies: commit-msg y pre-push
     - comprobamos su efecto: mensajes y nombre de rama
   - añadimos GitHub Actions: audit
@@ -36,7 +36,8 @@
     - añadimos workflow sonar.yml
     - creamos sonar-project.properties
 - Trabajamos en el repo
-  - Creamos la rama de trabajo: features/config
+  - creamos  la PR de la feature/config
+  - Creamos la rama de trabajo: features/sample
   - La publicamos y creamos la PR
   - Comprobamos el código con sonarCloud en la PR
   - Mergeamos la PR al finalizar, con todos los checks correctos
