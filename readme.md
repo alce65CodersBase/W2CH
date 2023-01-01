@@ -25,6 +25,8 @@
   - creamos la rama de trabajo: feature/config
   - añadimos huskies: commit-msg y pre-push
     - comprobamos su efecto: mensajes y nombre de rama
+    - con el primer commit, publicamos la rama
+    - opcionalmente creamos la PR
   - añadimos GitHub Actions: audit
     - carpeta .github/workflows
     - copiamos audit.yml
@@ -36,9 +38,16 @@
     - añadimos workflow sonar.yml
     - creamos sonar-project.properties
 - Trabajamos en el repo
-  - creamos  la PR de la feature/config
+  - si no existía, creamos la PR de la feature/config
     - en la propia PR se comprueban las GitHub actions
-  - Creamos la rama de trabajo: features/sample
-  - La publicamos y creamos la PR
-  - Comprobamos el código con sonarCloud en la PR
-  - Mergeamos la PR al finalizar, con todos los checks correctos
+      - audit: se comprueba la valides (e.g. ESLint) de código
+      - sonar: se comprueba el código con sonarCloud en la PR
+      - mergeamos la PR al finalizar, con todos los checks correctos
+      - eliminamos la PR, al menos en GitHub
+  - [opción] Creamos la rama de trabajo: features/sample
+    - añadimos fichero sample.js y hacemos un commit
+    - publicamos rama y creamos la PR
+    - modificamos sample.js y hacemos nuevos commits
+    - comprobamos la validez da la PR cada vez que se actualiza
+    - mergeamos la PR al finalizar, con todos los checks correctos
+    - eliminamos la PR, al menos en GitHub
