@@ -21,11 +21,22 @@
   - initial commit
   - conectamos a GitHub
   - protegemos la rama: Require a pull request before merging
+- Modificamos la configuración del repo
+  - creamos la rama de trabajo: features/config
   - añadimos huskies: commit-msg y pre-push
-    - comprobamos su efecto
-  - añadimos GitHub Actions: audit y sonar
+    - comprobamos su efecto: mensajes y nombre de rama
+  - añadimos GitHub Actions: audit
+    - carpeta .github/workflows
+    - copiamos audit.yml
+      - `npx eclint check` comprueba la validez de editorconfig
+      - comprobar node_modules en gitignore
+  - añadimos SonarCloud al repo
+    - lo incorporamos en la página de Sonar
+    - añadimos Secret en GitHub
+    - añadimos workflow sonar.yml
+    - creamos sonar-project.properties
 - Trabajamos en el repo
-  - Creamos la rama de trabajo: features/sample
+  - Creamos la rama de trabajo: features/config
   - La publicamos y creamos la PR
   - Comprobamos el código con sonarCloud en la PR
   - Mergeamos la PR al finalizar, con todos los checks correctos
