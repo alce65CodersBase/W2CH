@@ -1,25 +1,29 @@
 import { aLength } from './array.functions.js';
 describe('Given aLength function', () => {
-  describe('When we invoque it with an empty array', () => {
-    // beforeEach(() => {})
-    test('Then it return should be 0', () => {
-      // arrange
-      const aData = [];
-      // act
-      const r = aLength(aData);
-      // assert
-      expect(r).toBe(0);
-    });
-  });
+  const testCases = [
+    {
+      case: 'an empty array',
+      value: [],
+      length: 0,
+    },
+    {
+      case: 'an array of 3 numbers',
+      value: [1, 3, 3],
+      length: 3,
+    },
+  ];
 
-  describe('When we invoque it with a n numbers array', () => {
-    test('Then, if items are numbers it return should be n', () => {
-      // arrange
-      const aData = [1, 2, 3];
-      // act
-      const r = aLength(aData);
-      // assert
-      expect(r).toBe(3);
-    });
-  });
+  describe.each(testCases)(
+    'When we invoque it with $case',
+    ({ value, length }) => {
+      test('Then it return should be 0', () => {
+        // arrange
+        const aData = value;
+        // act
+        const r = aLength(aData);
+        // assert
+        expect(r).toBe(length);
+      });
+    }
+  );
 });
