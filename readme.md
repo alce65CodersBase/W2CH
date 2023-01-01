@@ -37,6 +37,7 @@
     - creamos sonar-project.properties
 - Trabajamos en el repo
   - creamos  la PR de la feature/config
+    - en la propia PR se comprueban las GitHub actions
   - Creamos la rama de trabajo: features/sample
   - La publicamos y creamos la PR
   - Comprobamos el código con sonarCloud en la PR
