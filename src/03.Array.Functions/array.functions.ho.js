@@ -10,25 +10,38 @@ export const aMap = (array, callback) => {
 
 export const aFilter = (array, callback) => {
   let aResult = [];
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < array.length; i++) {
-    const item = array[i];
+  // eslint-disable-next-line no-plusplus, no-restricted-syntax
+  for (const item of array) {
     if (callback(item)) {
       aResult = [...aResult, item];
     }
   }
+  // El mismo resultado con un bucle for
+  // for (let i = 0; i < array.length; i++) {
+  //   const item = array[i];
+  //   if (callback(item)) {
+  //     aResult = [...aResult, item];
+  //   }
+  // }
   return aResult;
 };
 
 // Continuar con
 export const aFind = (array, callback) => {
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < array.length; i++) {
-    const item = array[i];
+  // eslint-disable-next-line no-restricted-syntax
+  for (const item of array) {
     if (callback(item)) {
       return item;
     }
   }
+  // El mismo resultado con un bucle for
+  // eslint-disable-next-line no-plusplus
+  // for (let i = 0; i < array.length; i++) {
+  //   const item = array[i];
+  //   if (callback(item)) {
+  //     return item;
+  //   }
+  // }
   return undefined;
 };
 
@@ -55,20 +68,28 @@ export const aReduce = (array, callback) => {
 
 // Alguno cumple la condición
 export const aSome = (array, callback) => {
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < array.length; i++) {
-    const element = array[i];
-    if (callback(element)) return true;
+  // eslint-disable-next-line no-restricted-syntax
+  for (const item of array) {
+    if (callback(item)) return true;
   }
+  // El mismo resultado con un bucle for
+  // for (let i = 0; i < array.length; i++) {
+  //   const element = array[i];
+  //   if (callback(element)) return true;
+  // }
   return false;
 };
 
 // Todos cumplen la condición
 export const aEvery = (array, callback) => {
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < array.length; i++) {
-    const element = array[i];
-    if (!callback(element)) return false;
+  // eslint-disable-next-line no-restricted-syntax
+  for (const item of array) {
+    if (!callback(item)) return false;
   }
+  // El mismo resultado con un bucle for
+  // for (let i = 0; i < array.length; i++) {
+  //   const element = array[i];
+  //   if (!callback(element)) return false;
+  // }
   return true;
 };
