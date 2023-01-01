@@ -1,10 +1,10 @@
-import { strictEquals, strictEqualsBasic } from './strictEquals.js';
+import { strictEquals, strictEqualsBasic } from './strictEquals';
 import {
   strictEquals9,
   strictEquals10a,
   strictEquals10b,
-} from './strictEquals.discarded.js';
-import { testCases } from './test.cases.js';
+} from './strictEquals.discarded';
+import { testCases } from './test.cases';
 
 describe('Given strictEquals function', () => {
   testCases.forEach((item) => {
