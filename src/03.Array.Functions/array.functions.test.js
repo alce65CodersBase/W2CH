@@ -1,4 +1,4 @@
-import { aLength, aPush } from './array.functions.js';
+import { aLength, aPush, aPop, aShift, aUnshift } from './array.functions.js';
 
 describe('Given aLength function', () => {
   const testCases = [
@@ -58,8 +58,93 @@ describe('Given aPush function', () => {
       // act
       const r = aPush(aData, added);
       // assert
+      expect(r).toBe(aData.length);
+      expect(aData).toEqual([10, 20, added]);
+    });
+    test('Then it should be the same if array is empty', () => {
+      // arrange
+      const aData = [];
+      const added = 23;
+      // act
+      const r = aPush(aData, added);
+      // assert
+      expect(r).toBe(aData.length);
+      expect(aData).toEqual([added]);
+    });
+  });
+});
+
+describe('Given aPop function', () => {
+  describe('When we invoque it', () => {
+    test('Then last original array item should be removed and returned', () => {
+      // arrange
+      const aData = [10, 20];
+      // act
+      const r = aPop(aData);
+      // assert
+      expect(r).toBe(20);
+      expect(aData).toEqual([10]);
+      expect(aData.length).toBe(1);
+    });
+    test('Then it should be the same if array is empty', () => {
+      const aData = [];
+      // act
+      const r = aPop(aData);
+      // assert
+      expect(r).toBeUndefined();
+      expect(aData).toEqual([]);
+      expect(aData.length).toBe(0);
+    });
+  });
+});
+
+// elimina la primera
+describe('Given aShift function', () => {
+  describe('When we invoque it', () => {
+    test('Then first original array item should be removed and returned', () => {
+      // arrange
+      const aData = [10, 20];
+      // act
+      const r = aShift(aData);
+      // assert
+      expect(r).toBe(10);
+      expect(aData).toEqual([20]);
+      expect(aData.length).toBe(1);
+    });
+    test('Then it should be the same if array is empty', () => {
+      const aData = [];
+      // act
+      const r = aShift(aData);
+      // assert
+      expect(r).toBeUndefined();
+      expect(aData).toEqual([]);
+      expect(aData.length).toBe(0);
+    });
+  });
+});
+
+// añade al principio
+describe('Given aUnshift function', () => {
+  describe('When we invoque it with a value', () => {
+    test('Then value should be added as the first array item and array length returned', () => {
+      // arrange
+      const aData = [10, 20];
+      const value = 30;
+      // act
+      const r = aUnshift(aData, value);
+      // assert
       expect(r).toBe(3);
-      expect(aData[2]).toBe(23);
+      expect(aData).toEqual([30, 10, 20]);
+    });
+    test('Then it should be the same if array is empty', () => {
+      const aData = [];
+      // act
+      const value = 30;
+      // act
+      const r = aUnshift(aData, value);
+      // assert
+      expect(r).toBe(1);
+      expect(aData).toEqual([30]);
     });
   });
 });
