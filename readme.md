@@ -66,6 +66,14 @@
     npm i -D jest @babel/plugin-transform-modules-commonjs
     ```
 
+  - Configuración de ESLint
+
+    ```json
+    "env": {
+      "jest": true
+    }
+    ```
+
   - Configuración en package.json (Jest + ES6 Modules)
 
     ```json
@@ -84,4 +92,29 @@
     ```
 
   - GitHub Action de testing
-  - Coverage en sonar
+
+      ```yml
+      name: Testing Analysis
+
+      on:
+        push:
+          branches: ['main']
+        pull_request:
+          types: [opened, synchronize, reopened]
+        workflow_dispatch:
+
+      jobs:
+        Test:
+          name: Tests
+          runs-on: ubuntu-latest
+          steps:
+            - uses: actions/checkout@v3
+              with:
+                fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+            - name: Install modules
+              run: npm ci
+            - name: Testing coverage
+              run: npm run test:prod #Change for a valid npm script
+      ```
+
+  - Coverage en sonar (ampliar fichero sonar-project.properties)
