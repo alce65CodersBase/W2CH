@@ -1,4 +1,4 @@
-import { findNeighborPositions } from './helpers';
+import { findNeighborPositions, countAliveNeighbors } from './helpers';
 
 // First test version
 // describe('Given findNeighborPositions function', () => {
@@ -80,6 +80,45 @@ describe('Given findNeighborPositions function', () => {
           const result = findNeighborPositions(i, j, array);
           // assert
           expect(result.length).toBe(expected);
+        });
+      }
+    );
+  });
+});
+
+describe('Given countAliveNeighbors function', () => {
+  describe('When it is call without parameters', () => {
+    test('Then it should return 0', () => {
+      expect(countAliveNeighbors()).toBe(0);
+    });
+  });
+  describe('When the array is 5 x 5', () => {
+    const array = [
+      [1, 0, 1, 0, 1],
+      [0, 1, 0, 1, 0],
+      [1, 0, 1, 0, 1],
+      [1, 1, 1, 1, 1],
+      [0, 0, 0, 0, 0],
+    ];
+    const testValues = [
+      [0, 0, 1],
+      [0, 1, 3],
+      [0, 2, 2],
+      [1, 2, 4],
+      [1, 3, 4],
+      [1, 4, 3],
+      [2, 2, 5],
+      [3, 1, 4],
+      [4, 2, 3],
+    ];
+    describe.each(testValues)(
+      'And the coordinates are %i,%i',
+      (i, j, expected) => {
+        test(`returned sum of alive neighbors should be ${expected}`, () => {
+          // act
+          const result = countAliveNeighbors(i, j, array);
+          // assert
+          expect(result).toBe(expected);
         });
       }
     );

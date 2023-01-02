@@ -21,3 +21,11 @@ export const findNeighborPositions = (i = 0, j = 0, array = []) => {
     (item) => item[0] >= 0 && item[1] >= 0 && item[0] <= max && item[1] <= max
   );
 };
+
+export function countAliveNeighbors(i = 0, j = 0, array = []) {
+  if (!array.length) return 0;
+  const validPositions = findNeighborPositions(i, j, array);
+  return validPositions
+    .map((item) => array[item[0]][item[1]])
+    .reduce((a, b) => a + b);
+}
