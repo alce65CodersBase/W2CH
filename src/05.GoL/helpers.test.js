@@ -1,4 +1,8 @@
-import { findNeighborPositions, countAliveNeighbors } from './helpers';
+import {
+  findNeighborPositions,
+  countAliveNeighbors,
+  willBeAlive,
+} from './helpers';
 
 // First test version
 // describe('Given findNeighborPositions function', () => {
@@ -117,6 +121,46 @@ describe('Given countAliveNeighbors function', () => {
         test(`returned sum of alive neighbors should be ${expected}`, () => {
           // act
           const result = countAliveNeighbors(i, j, array);
+          // assert
+          expect(result).toBe(expected);
+        });
+      }
+    );
+  });
+});
+
+describe('Given willBeAlive function', () => {
+  describe('When it is call without parameters', () => {
+    test('Then it should return 0', () => {
+      expect(willBeAlive()).toBe(0);
+    });
+  });
+  describe('When the array is 5 x 5', () => {
+    const array = [
+      [1, 0, 1, 0, 1],
+      [0, 1, 0, 1, 0],
+      [1, 0, 1, 0, 1],
+      [1, 1, 1, 0, 0],
+      [0, 0, 0, 0, 0],
+    ];
+    const testValues = [
+      [0, 0, 0],
+      [0, 1, 1],
+      [0, 2, 0],
+      [1, 2, 1],
+      [1, 3, 0],
+      [1, 4, 1],
+      [2, 2, 0],
+      [3, 1, 0],
+      [4, 2, 0],
+      [4, 4, 0],
+    ];
+    describe.each(testValues)(
+      'And the coordinates are %i,%i',
+      (i, j, expected) => {
+        test(`returned alive state should be ${expected}`, () => {
+          // act
+          const result = willBeAlive(i, j, array);
           // assert
           expect(result).toBe(expected);
         });

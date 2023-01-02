@@ -29,3 +29,14 @@ export function countAliveNeighbors(i = 0, j = 0, array = []) {
     .map((item) => array[item[0]][item[1]])
     .reduce((a, b) => a + b);
 }
+
+export function willBeAlive(i = 0, j = 0, array = []) {
+  if (!array.length) return 0;
+  const countValidCells = countAliveNeighbors(i, j, array);
+  if (array[i][j] === 1) {
+    // starting alive
+    return countValidCells > 2 && countValidCells <= 3 ? 1 : 0;
+  }
+  // starting dead
+  return countValidCells >= 3 ? 1 : 0;
+}
