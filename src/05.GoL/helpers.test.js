@@ -25,5 +25,25 @@ describe('Given findNeighborPositions function', () => {
         expect(result.length).toBe(8);
       });
     });
+    describe('And the coordinates are 0,0', () => {
+      test('returned valid neighbors should be an array of 3 items', () => {
+        // arrange
+        const coordinates = [0, 0];
+        // act
+        const result = findNeighborPositions(...coordinates, array);
+        // assert
+        expect(result.length).toBe(3);
+      });
+    });
+    describe('And the coordinates are 2,2', () => {
+      test('returned valid neighbors should be an array of 3 items', () => {
+        // arrange
+        const coordinates = [2, 2];
+        // act
+        const result = findNeighborPositions(...coordinates, array);
+        // assert
+        expect(result.length).toBe(3);
+      });
+    });
   });
 });
