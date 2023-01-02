@@ -40,3 +40,11 @@ export function willBeAlive(i = 0, j = 0, array = []) {
   // starting dead
   return countValidCells >= 3 ? 1 : 0;
 }
+
+export function liveCycle(array) {
+  // localArray = array.map(item => [...item])
+  const localArray = array.map((item, i) =>
+    item.map((_item, j) => willBeAlive(i, j, array))
+  );
+  return localArray;
+}

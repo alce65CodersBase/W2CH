@@ -2,6 +2,7 @@ import {
   findNeighborPositions,
   countAliveNeighbors,
   willBeAlive,
+  liveCycle,
 } from './helpers';
 
 // First test version
@@ -166,5 +167,26 @@ describe('Given willBeAlive function', () => {
         });
       }
     );
+  });
+});
+
+describe('Given liveCycle function', () => {
+  describe('When the array is 3 x 3', () => {
+    const array = [
+      [1, 1, 1],
+      [1, 1, 1],
+      [1, 1, 1],
+    ];
+    const expected = [
+      [1, 0, 1],
+      [0, 0, 0],
+      [1, 0, 1],
+    ];
+    test('result should be a new array 3 x 3', () => {
+      // act
+      const result = liveCycle(array);
+      // assert
+      expect(result).toEqual(expected);
+    });
   });
 });
