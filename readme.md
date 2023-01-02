@@ -2,6 +2,9 @@
 
 - Day 1. Start project + sample.js
 - Day 2. Strict Equals
+- Day 3. Array Functions
+- Day 4. Katas
+- Day 5. WE: Game of Life (GoL)
 
 ## Configuraciones (Day 1)
 
