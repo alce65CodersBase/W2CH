@@ -10,7 +10,7 @@ import { randomBoard, renderBoard } from './shell.js';
 // ];
 
 const interval = 1000;
-const initialBoard = randomBoard(25, 26);
+const initialBoard = randomBoard(5, 10);
 let board = renderBoard(initialBoard);
 
 setInterval(() => {

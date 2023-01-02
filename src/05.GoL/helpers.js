@@ -22,8 +22,8 @@
 //   );
 // };
 
-const filterValidPosition = (item, max) =>
-  item[0] >= 0 && item[1] >= 0 && item[0] <= max && item[1] <= max;
+const filterValidPosition = (item, maxFil, maxCol) =>
+  item[0] >= 0 && item[1] >= 0 && item[0] <= maxFil && item[1] <= maxCol;
 
 export const findNeighborPositions = (i = 0, j = 0, array = []) => {
   // posiciones al rededor de (i,j)
@@ -31,7 +31,8 @@ export const findNeighborPositions = (i = 0, j = 0, array = []) => {
   // array[i][j-1],array[i][j],array[i][j+1],
   // array[i+1][j-1],array[i+1][j],array[i+1][j+1]
   if (!array.length) return [];
-  const max = array.length - 1;
+  const maxFil = array.length - 1;
+  const maxCol = array[0].length - 1;
   const possiblePositions = [
     [i - 1, j - 1],
     [i - 1, j],
@@ -43,7 +44,9 @@ export const findNeighborPositions = (i = 0, j = 0, array = []) => {
     [i + 1, j + 1],
   ];
 
-  return possiblePositions.filter((item) => filterValidPosition(item, max));
+  return possiblePositions.filter((item) =>
+    filterValidPosition(item, maxFil, maxCol)
+  );
 };
 
 // Previous version: complexity 6

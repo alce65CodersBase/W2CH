@@ -89,6 +89,41 @@ describe('Given findNeighborPositions function', () => {
       }
     );
   });
+  describe('When the array is 3 x 5 (not square)', () => {
+    const array = [
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+    ];
+    const testValues = [
+      [0, 0, 3],
+      [0, 1, 5],
+      [0, 2, 5],
+      [0, 3, 5],
+      [0, 4, 3],
+      [1, 0, 5],
+      [1, 1, 8],
+      [1, 2, 8],
+      [1, 3, 8],
+      [1, 4, 5],
+      [2, 0, 3],
+      [2, 1, 5],
+      [2, 2, 5],
+      [2, 3, 5],
+      [2, 4, 3],
+    ];
+    describe.each(testValues)(
+      'And the coordinates are %i,%i',
+      (i, j, expected) => {
+        test(`returned valid neighbors should be ${expected}`, () => {
+          // act
+          const result = findNeighborPositions(i, j, array);
+          // assert
+          expect(result.length).toBe(expected);
+        });
+      }
+    );
+  });
 });
 
 describe('Given countAliveNeighbors function', () => {
