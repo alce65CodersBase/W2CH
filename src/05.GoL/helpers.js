@@ -57,12 +57,12 @@ export const findNeighborPositions = (i = 0, j = 0, array = []) => {
 const positionsToValues = (positions, array) =>
   positions.map((item) => array[item[0]][item[1]]);
 
-export function countAliveNeighbors(i = 0, j = 0, array = []) {
+export const countAliveNeighbors = (i = 0, j = 0, array = []) => {
   if (!array.length) return 0;
   const validPositions = findNeighborPositions(i, j, array);
   const values = positionsToValues(validPositions, array);
   return values.reduce((a, b) => a + b);
-}
+};
 
 // Previos version: complexity 9
 // export function willBeAlive(i = 0, j = 0, array = []) {
@@ -81,7 +81,7 @@ const forLiveCells = (countValidCells) =>
 
 const forDeadCells = (countValidCells) => (countValidCells >= 3 ? 1 : 0);
 
-export function willBeAlive(i = 0, j = 0, array = []) {
+export const willBeAlive = (i = 0, j = 0, array = []) => {
   if (!array.length) return 0;
   const countValidCells = countAliveNeighbors(i, j, array);
   return array[i][j] === 1
@@ -89,12 +89,12 @@ export function willBeAlive(i = 0, j = 0, array = []) {
       forLiveCells(countValidCells)
     : // starting dead
       forDeadCells(countValidCells);
-}
+};
 
-export function liveCycle(array) {
+export const liveCycle = (array) => {
   // localArray = array.map(item => [...item])
   const localArray = array.map((item, i) =>
     item.map((_item, j) => willBeAlive(i, j, array))
   );
   return localArray;
-}
+};
