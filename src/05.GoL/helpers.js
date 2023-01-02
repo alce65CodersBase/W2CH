@@ -16,7 +16,6 @@
 //     [i + 1, j],
 //     [i + 1, j + 1],
 //   ];
-
 //   return possiblePositions.filter(
 //     (item) => item[0] >= 0 && item[1] >= 0 && item[0] <= max && item[1] <= max
 //   );
